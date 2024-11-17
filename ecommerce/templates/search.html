@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static%}
+{% block content%}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  {% if pro == None %}
+     <form></form>
+  {% else%}
+<div class="container mt-5 p-3">
+
+    <h1>you have searched for {{query}}</h1>
+
+<div class="row">
+			{% for i in pro %}
+					<div class=" col-sm-4 p-3">
+
+						<div class="card mx-auto border border-1 border-secondary shadow p-4">
+							<a href="{% url 'shop:details' i.id %}" class="post-thumbnail"><img src="{{i.image.url}}"  alt="Image"  class="img-fluid"></a>
+							<div class="name">
+								<h2>{{i.name}}</h2>
+							  <div class="post-content-entry"><b><i>
+								  {{i.price}} </i></b><br>
+
+                                             <a href="{% url 'shop:details' i.id %}" class="btn btn-primary">VIEW PRODUCT</a>
+
+
+
+
+							  </div>
+							</div>
+						</div>
+					</div>
+						{% empty %}
+    <h3 class="text-center">no result found</h3>
+    {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock %}
+</div>

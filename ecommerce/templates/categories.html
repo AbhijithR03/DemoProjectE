@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+
+
+
+	<!-- start banner Area -->
+	<section class="banner-area">
+		<div class="container">
+			<div class="row fullscreen align-items-center justify-content-start">
+				<div class="col-lg-12">
+
+						<div class="row single-slide">
+							<div class="col-lg-5">
+								<div class="banner-content">
+									<h1>Nike New <br>Collection!</h1>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+										dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+									<div class="add-bag d-flex align-items-center">
+										<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
+										<span class="add-text text-uppercase">Add to Bag</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-7">
+								<div class="banner-img">
+									<img class="img-fluid" src="{% static 'img/banner/banner-img.png' %}" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</section>
+
+<!--	&lt;!&ndash; start banner Area &ndash;&gt;-->
+<!--	<section class="banner-area">-->
+<!--		<div class="container">-->
+<!--			<div class="row fullscreen align-items-center justify-content-start">-->
+<!--				<div class="col-lg-12">-->
+<!--					<div class="active-banner-slider owl-carousel">-->
+<!--						&lt;!&ndash; single-slide &ndash;&gt;-->
+<!--						<div class="row single-slide align-items-center d-flex">-->
+<!--							<div class="col-lg-5 col-md-6">-->
+<!--								<div class="banner-content">-->
+<!--									<h1>Nike New <br>Collection!</h1>-->
+<!--									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et-->
+<!--										dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>-->
+<!--									<div class="add-bag d-flex align-items-center">-->
+<!--										<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>-->
+<!--										<span class="add-text text-uppercase">Add to Bag</span>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="col-lg-7">-->
+<!--								<div class="banner-img">-->
+<!--									<img class="img-fluid" src="img/banner/banner-img.png" alt="">-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--</div></div></div></div></section>-->
+
+
+<div class="container mt-3"></div>
+<h2 class="text-center"><i>Our Collections</i></h2>
+<p style="text-align:justify;line-height:2;font-size:20px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+
+
+
+
+<div class="container">
+		 <div class="row row-cols-1 row-cols-md-3 g-4 mx-auto">
+			 {% for i in cat %}
+               <div class=" col-sm-4 p-3">
+				<div class="card mx-auto border border-1 border-secondary shadow p-4" align="center" style="width: 18rem;">
+					  <img src="{{i.image.url}}" class="card-img-top" height="200px" width="75%" alt="...">
+					  <div class="card-body">
+						<h5 class="card-title"><u>{{i.name}}</u></h5>
+						<p class="card-text">{{i.price}}</p>
+
+					   <a href="{% url 'shop:products' i.id %}"  class="btn btn-primary">VIEW PRODUCT</a>
+
+
+					  </div>
+				</div></div>
+			 {% endfor %}
+
+
+
+		 </div>
+</div>
+             <br>
+			 <br>
+
+{% endblock %}
+
